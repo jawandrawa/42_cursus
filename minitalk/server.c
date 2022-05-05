@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 12:19:11 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/04/26 14:00:09 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/05/05 15:27:06 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ int position;
 
 void receive_bits(int signal)
 {
-	write(1,"r",1);
     if (signal == SIGUSR1)
         character |= 1 << position;
+	if (signal == SIGUSR2)
+        character |= 0 << position;
     position++;
     if (position == 8)
     {
@@ -38,15 +39,12 @@ int main(void)
 {
     character = 0;
     position = 0;
-    struct  sigaction sig;
     int     pid;
 	
-	sigaction(SIGUSR1, &sig, NULL);
-    sigaction(SIGUSR2, &sig, NULL);
     pid = getpid();
+	signal(SIGUSR1, receive_bits);
+	signal(SIGUSR2, receive_bits);
     printf("pid: %d\n",pid);
-    sig.sa_handler = &receive_bits;
-	
 
     while(1)
 		sleep(1);
