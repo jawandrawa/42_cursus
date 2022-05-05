@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 11:23:36 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/04/12 18:13:22 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/04/26 13:26:55 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	choose_key(int key, t_data *tab)
 {
 	int	i;
 	int	j;
-
+	
 	if (key == 53)
 	{
 		free_map(tab);
