@@ -6,7 +6,7 @@
 #    By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 14:45:33 by mtacunan          #+#    #+#              #
-#    Updated: 2022/07/08 15:36:43 by mtacunan         ###   ########.fr        #
+#    Updated: 2022/07/08 17:48:45 by mtacunan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ SRC_S =  server.c
 
 SRC_C =   client.c
 
-UTILS = utils.c\
+UTILS = utils1.c\
+		utils2.c\
 		ft_printf/ft_printf.c\
 		ft_printf/ft_putnbr.c
 		
@@ -43,7 +44,7 @@ ${SERVER}:	${OBJS_S} $(OBJS_U)
 
 all:	${SERVER} ${CLIENT}
 clean:
-	${RM} ${OBJS_S} ${OBJS_C}
+	${RM} ${OBJS_S} ${OBJS_C} ${OBJS_U}
 
 fclean:		clean
 	${RM} ${SERVER} ${CLIENT}
