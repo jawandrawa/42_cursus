@@ -1,58 +1,53 @@
-# COLORS #
-GREEN = @echo "\033[0;32m"
-BLUE = @echo "\033[0;34m" 
-PURPLE = @echo "\033[0;35m"
-CYAN = @echo "\033[0;36m"
-RESET = "\033[1;0m"
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/07/08 14:45:33 by mtacunan          #+#    #+#              #
+#    Updated: 2022/07/08 15:36:43 by mtacunan         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-# VARIABLES #
-NAME = Minitalk
-SVR_NAME	= server
-CLNT_NAME	= client
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra #-g3
+SRC_S =  server.c
 
-# PATHs #
-OBJ_PATH    = objects
+SRC_C =   client.c
 
+UTILS = utils.c\
+		ft_printf/ft_printf.c\
+		ft_printf/ft_putnbr.c
+		
+OBJS_S = ${SRC_S:.c=.o}
+OBJS_C = ${SRC_C:.c=.o}
+OBJS_U = ${UTILS:.c=.o}
 
-# SOURCES #
-SRC =   client.c\
-        server.c
+SERVER = server
+CLIENT = client
 
-# RULES #
-all: $(NAME)
-
-OBJS_NAME = $(SRC:%.c=%.o)
-
-#SRCS = $(addprefix $(SRC_PATH)/, $(SRC))
-
-
-$(OBJ_PATH):
-	mkdir -p $(OBJ_PATH) 2> /dev/null
-
-$(OBJ_PATH)/%.o: $(OBJ_PATH)
-	$(CC) $(CFLAGS) -c $< -o $@
-            
-$(NAME): $(OBJS)
-	$(GREEN)CREANDO SERVIDOR Y CLIENTE $(RESET)
-	$(CC) $(CFLAGS) server.c -o $(SVR_NAME) 
-	$(CC) $(CFLAGS) client.c -o $(CLNT_NAME)
-	
-
-##RULES
-$(MAKE): make
+GCC   = gcc
+CFLAGS = -Wall -Werror -Wextra
+RM = rm -f
 
 
+.c.o:
+	${GCC} ${CFLAGS} -c $< -o ${<:.c=.o}
+
+compile: ${SERVER} ${CLIENT}
+
+${CLIENT}: ${OBJS_C} $(OBJS_U)
+	${GCC} $(OBJS_C) $(OBJS_U) -o ${CLIENT}
+${SERVER}:	${OBJS_S} $(OBJS_U)
+	${GCC} $(OBJS_S) $(OBJS_U) -o ${SERVER}
+
+
+all:	${SERVER} ${CLIENT}
 clean:
-	rm -rf $(OBJS)
-	
-fclean: clean
-	$(BLUE)MATANDO SERVER Y CLIENT $(RESET)
-	rm -rf $(SVR_NAME)
-	rm -rf $(CLNT_NAME)
-	rm -rf $(OBJ_PATH)
+	${RM} ${OBJS_S} ${OBJS_C}
+
+fclean:		clean
+	${RM} ${SERVER} ${CLIENT}
 
 re: fclean all
 
-PHONY.: all clean fclean re norminette
+.PHONY:		all clean fclean re compile
