@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 12:31:18 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/07/13 18:07:30 by mtacunan         ###   ########.fr       */
+/*   Created: 2021/10/21 20:14:45 by mtacunan          #+#    #+#             */
+/*   Updated: 2021/10/21 20:15:14 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <signal.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include <limits.h>
-# include "../minitalk/ft_printf/ft_printf.h"
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+{
+	t_list	*sol;
+	t_list	*aux;
 
-int		g_character;
-int		g_position;
-int		ft_isdigit(int c);
-int		ft_atoi(char *str);
-char	*ft_itoa(int num);
-#endif
+	sol = NULL;
+	while (lst && aux)
+	{
+		aux = ft_lstnew((*f)(lst->content));
+		ft_lstadd_back(&sol, aux);
+		lst = lst->next;
+	}
+	if (!aux)
+		ft_lstclear(&aux, del);
+	return (sol);
+}

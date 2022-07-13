@@ -6,14 +6,11 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 12:19:11 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/07/08 15:04:46 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/07/13 18:07:16 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-
-int	g_character;
-int	g_position;
 
 void	receive_bits(int signal)
 {

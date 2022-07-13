@@ -6,13 +6,13 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:45:32 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/07/08 17:45:41 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/07/13 17:50:53 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-static int	ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
 	if (! (c >= '0' && c <= '9'))
 		return (0);

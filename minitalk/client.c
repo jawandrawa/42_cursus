@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 12:10:35 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/07/08 15:26:01 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/07/13 17:49:00 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,41 @@ void	send_char(int pid, char byte)
 	}
 }
 
+void	send_msg(int pid, char *msg)
+{
+	int	i;
+
+	i = 0;
+	while (msg[i])
+	{
+		send_char(pid, msg[i]);
+		i++;
+	}
+	send_char(pid, '\n');
+	return ;
+}
+
+int	valid_pid(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	int		pid_server;
 	int		i;
 	char	*pid_client;
 
-	pid_client = ft_itoa(getpid());
-	if (argc != 3 || *argv[2] == 0)
+	if (argc != 3 || !(valid_pid(argv[1])))
 	{
 		write(1, "usage: ./client [server-pid] [message]\n", 39);
 		return (1);
@@ -44,16 +71,9 @@ int	main(int argc, char **argv)
 	else
 	{
 		pid_server = ft_atoi(argv[1]);
-		i = 0;
-		while (argv[2][i])
-		{
-			send_char(pid_server, argv[2][i]);
-			i++;
-		}
-		send_char(pid_server, '\n');
+		pid_client = ft_itoa(getpid());
+		send_msg(pid_server, argv[2]);
 		i = -1;
-		while (pid_client[i++])
-			send_char(pid_server, pid_client[i]);
 	}
 	return (0);
 }

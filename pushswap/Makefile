@@ -5,43 +5,30 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/07/08 14:45:33 by mtacunan          #+#    #+#              #
-#    Updated: 2022/07/13 17:47:14 by mtacunan         ###   ########.fr        #
+#    Created: 2022/07/08 15:51:44 by mtacunan          #+#    #+#              #
+#    Updated: 2022/07/08 17:00:26 by mtacunan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_S =  server.c
-
-SRC_C =   client.c
-
-UTILS = utils1.c\
-		utils2.c\
-		ft_printf/ft_printf.c\
-		ft_printf/ft_putnbr.c
-		
-OBJS_S = ${SRC_S:.c=.o}
-OBJS_C = ${SRC_C:.c=.o}
-OBJS_U = ${UTILS:.c=.o}
-
-SERVER = server
-CLIENT = client
-
+SRCS = pushswap.c
+NAME = pushswap
 GCC   = gcc
 CFLAGS = -Wall -Werror -Wextra
 RM = rm -f
+OBJS = ${SRCS:.c=.o}
+.c.o:
+	${GCC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-all:	${SERVER} ${CLIENT}
+${NAME} : ${OBJS}
+	${GCC} ${CFLAGS} ${OBJS} -o ${NAME}
 
-${CLIENT}: ${OBJS_C} $(OBJS_U)
-	${GCC} $(OBJS_C) $(OBJS_U) -o ${CLIENT}
-${SERVER}:	${OBJS_S} $(OBJS_U)
-	${GCC} $(OBJS_S) $(OBJS_U) -o ${SERVER}
+all : ${NAME}
 
 clean:
-	${RM} ${OBJS_S} ${OBJS_C} ${OBJS_U}
+	${RM} ${OBJS}
 
 fclean:		clean
-	${RM} ${SERVER} ${CLIENT}
+	${RM} ${NAME}
 
 re: fclean all
 
