@@ -1,3 +1,4 @@
+NAME	=		libft.a
 
 SRCS	=		ft_memset.c \
 				ft_strlen.c \
@@ -58,9 +59,6 @@ AR		=		ar rcs
 
 CFLAGS	=		-Wall -Werror -Wextra
 
-NAME	=		libft.a
-
-
 all: $(NAME)
 
 $(NAME): $(OBJS) $(SRCH)
@@ -83,5 +81,5 @@ so:
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(SRCBONUS)
 	gcc -nostartfiles -shared -o libft.so $(OBJS) $(OBJB)
 
-.PHONY: all clean fclean bonus re rebonus
+.PHONY: all clean fclean bonus re rebonus so
 

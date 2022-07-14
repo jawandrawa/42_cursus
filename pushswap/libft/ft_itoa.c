@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 19:08:33 by mtacunan          #+#    #+#             */
-/*   Updated: 2021/10/21 17:49:25 by mtacunan         ###   ########.fr       */
+/*   Updated: 2021/11/06 16:24:49 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,8 @@ char	*ft_itoa(int num)
 		return (NULL);
 	else
 		return (put_num(num, str_nb, len, pot));
+}
+int main()
+{
+	printf("%s",ft_itoa(02131230));
 }

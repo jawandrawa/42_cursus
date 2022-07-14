@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/14 13:12:06 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/07/14 13:20:35 by mtacunan         ###   ########.fr       */
+/*   Created: 2021/10/02 19:06:10 by mtacunan          #+#    #+#             */
+/*   Updated: 2022/07/14 15:45:08 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
-
-size_t	ft_strlen(const char *str)
-{
-	int	len;
-
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
-}
+#include "libft.h"
 
 char	*ft_strjoin(char *s1, char *s2)
 {
@@ -36,7 +26,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	len_2 = ft_strlen(s2);
 	sol = malloc((len_1 + len_2 + 1) * sizeof(char));
 	if (!sol)
-		return (NULL);
+		return (0);
 	while (++i < len_1)
 		sol[i] = s1[i];
 	while (i < len_1 + len_2)
@@ -49,4 +39,3 @@ char	*ft_strjoin(char *s1, char *s2)
 	free (s1);
 	return (sol);
 }
-

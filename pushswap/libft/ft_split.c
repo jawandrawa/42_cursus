@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/14 13:15:33 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/07/14 13:20:20 by mtacunan         ###   ########.fr       */
+/*   Created: 2021/10/23 14:02:09 by mtacunan          #+#    #+#             */
+/*   Updated: 2021/11/17 12:56:21 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "libft.h"
 
 static int	get_words(const char *s, char c)
 {
@@ -105,11 +105,12 @@ char	**ft_split(char const *s, char c)
 int main ()
 {
 	int i = 0;
-	const char **a = ft_split("hola", ' ');
+	const char **a = ft_split("hola que tal ?", ' ');
 	while (a[i])
 	{
 		printf("%s\n", a[i]);
 		i++;
+		
 	}
 	i = 0;
 	while (a[i])
@@ -117,7 +118,6 @@ int main ()
 		free(a[i]);
 		i++;
 	}
-	free (a);
-	system("leaks a.out");
+	free (a);	
+	check_leaks();
 }
-

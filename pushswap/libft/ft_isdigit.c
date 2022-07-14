@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 17:06:00 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/07/08 17:06:14 by mtacunan         ###   ########.fr       */
+/*   Created: 2021/10/02 13:35:15 by mtacunan          #+#    #+#             */
+/*   Updated: 2021/10/06 11:13:55 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isdigit(int c)
 {

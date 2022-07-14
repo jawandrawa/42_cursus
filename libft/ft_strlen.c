@@ -6,13 +6,11 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 17:22:20 by mtacunan          #+#    #+#             */
-/*   Updated: 2021/10/23 17:49:54 by mtacunan         ###   ########.fr       */
+/*   Updated: 2021/10/02 17:50:16 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t	ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
 	int	len;
 
