@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:45:32 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/07/13 17:50:53 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/07/14 15:03:29 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,29 @@ int	ft_atoi(char *str)
 	if (sign == 1 && num > LONG_MAX)
 		return (-1);
 	return (num * sign);
+}
+
+void	*ft_bzero(void *s, size_t n)
+{
+	unsigned char	*p;
+
+	p = s;
+	while (n > 0)
+	{
+		*p = '\0';
+		p++;
+		n--;
+	}
+	return (s);
+}
+
+void	*ft_calloc(size_t num, size_t size)
+{
+	void	*sol;
+
+	sol = malloc (num * size);
+	if (! sol)
+		return (NULL);
+	ft_bzero(sol, size * num);
+	return (sol);
 }

@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 12:31:18 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/07/13 18:07:30 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/07/14 15:13:17 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,14 @@
 # include <limits.h>
 # include "../minitalk/ft_printf/ft_printf.h"
 
-int		g_character;
-int		g_position;
+typedef struct server
+{
+	int	g_character;
+	int	g_position;
+	int	srv_pid;	
+}g_data;
 int		ft_isdigit(int c);
 int		ft_atoi(char *str);
 char	*ft_itoa(int num);
+void	*ft_calloc(size_t num, size_t size);
 #endif
