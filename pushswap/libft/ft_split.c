@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 14:02:09 by mtacunan          #+#    #+#             */
-/*   Updated: 2021/11/17 12:56:21 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/07/23 15:47:15 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,24 +100,4 @@ char	**ft_split(char const *s, char c)
 		return (0);
 	sol = solve_splt(sol, s, c);
 	return (sol);
-}
-
-int main ()
-{
-	int i = 0;
-	const char **a = ft_split("hola que tal ?", ' ');
-	while (a[i])
-	{
-		printf("%s\n", a[i]);
-		i++;
-		
-	}
-	i = 0;
-	while (a[i])
-	{
-		free(a[i]);
-		i++;
-	}
-	free (a);	
-	check_leaks();
 }
