@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:48:08 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/07/23 19:24:12 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/07/27 18:10:38 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,31 @@ int	check_elements(char **stack)
 			i++;
 		}
 		j++;
+	}
+	return (1);
+}
+/*falta lo de los limites de los integer*/
+int	check_reps(char	**nums)
+{
+	int	i;
+	int	j;
+	int	aux;
+
+	i = 0;
+	while (nums[i])
+	{
+		aux = ft_atoi(nums[i]);
+		j = i + 1;
+		printf("%d\n",aux);
+		while(nums[j])
+		{
+			if (aux == ft_atoi(nums[j]) || aux < -2147483648 || aux > 2147483647)
+			{
+				return (0);
+			}
+			j++;
+		}
+		i++;
 	}
 	return (1);
 }
@@ -58,26 +83,22 @@ int	main(int argc, char **argv)
 		free(aux);
 		i++;
 	}
-
 	nums = ft_split(data, ' ');
-	//free (data);
-	// while (*nums)
+	if (!check_elements(nums) || !check_reps(nums))
+	{
+		free(nums);
+		write(2,"Ingrese números integers sin repeticiones.\n",44);
+	}
+	//---fin intialize---//
+	else
+		printf("stack valido\n");
+	// while(*nums)
 	// {
-	// 	printf ("%s\n", *nums);
+	// 	printf("·%s·\n", *nums);
 	// 	nums++;
 	// }
 	
-	if (!check_elements(nums))
-	{
-		//free(nums);
-		
-		write(2,"Solo se admiten números y sin repeticiones.\n",45);
-		//jajalolxd lo de repetir ahora lo vemos
-	}
-	else
-		printf("stack valido\n");
-	
-	//system("leaks a.out");
+	//system("leaks push_swap");
 	return (0);
 	/*check 
 	->mal: liberar y sacar msj error

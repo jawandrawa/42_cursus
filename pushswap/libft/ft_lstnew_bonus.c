@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 19:09:21 by mtacunan          #+#    #+#             */
-/*   Updated: 2021/10/21 20:15:58 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/07/27 18:13:06 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ t_list	*ft_lstnew(void *content)
 		return (NULL);
 	sol->content = content;
 	sol->next = NULL;
+	sol->back = NULL;
 	return (sol);
 }
