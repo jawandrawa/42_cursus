@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:48:08 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/07/27 18:10:38 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/08/01 13:45:07 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,25 @@ char	*add_sp(char *str)
 	return (res);
 }
 
+t_list	*create_stack(char **data)
+{
+	t_list	*first;
+	t_list	*aux;
+	int		i;
+
+	
+	first = ft_lstnew(ft_atoi(data[0]));
+	i = 1;
+	while (*data)
+	{
+		aux = ft_lstnew((int)ft_atoi(data[i]));
+		ft_lstadd_back(&first, aux);
+		i++;
+		data++;
+	}
+	return (first);
+}
+
 int	main(int argc, char **argv)
 {
 	//--initilize--//
@@ -74,6 +93,7 @@ int	main(int argc, char **argv)
 	char	*aux;
 	char	*data;
 	char	**nums;
+	t_list	*list;
 	i = 1;
 	data = ft_strdup("");
 	while (i < argc)
@@ -91,8 +111,11 @@ int	main(int argc, char **argv)
 	}
 	//---fin intialize---//
 	else
-		printf("stack valido\n");
-	// while(*nums)
+	{
+		list = create_stack(nums);
+		printf("%d\n", list->content);
+	}
+	// // while(*nums)
 	// {
 	// 	printf("·%s·\n", *nums);
 	// 	nums++;
