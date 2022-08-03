@@ -6,7 +6,7 @@
 #    By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 15:51:44 by mtacunan          #+#    #+#              #
-#    Updated: 2022/08/02 14:45:03 by mtacunan         ###   ########.fr        #
+#    Updated: 2022/08/03 20:11:12 by mtacunan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,11 @@ RM = rm -f
 OBJS = ${SRCS:.c=.o}
 
 
-
 .c.o:
 	@${GCC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-${NAME} : ${OBJS}
-	@make -C libft
+${NAME} : ${OBJS}  ${LIBFT}
+	make -C libft
 	@${GCC} ${CFLAGS} ${OBJS} libft/libft.a -o ${NAME}
 
 all : ${NAME}
@@ -33,7 +32,7 @@ clean:
 
 fclean:		clean
 	${RM} ${NAME}
-
+	make fclean -sC libft
 re: fclean all
 
 .PHONY:		all clean fclean re compile
