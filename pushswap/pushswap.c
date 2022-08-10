@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:48:08 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/08/10 17:03:59 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/08/10 17:59:41 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	main(int argc, char **argv)
 		ra(stack_a);
 		print_stack(*stack_a);
 		printf("tamaño stck_a : %d\n", ft_lstsize(*stack_a));
-		print_stack(*stack_b);
+		//print_stack(*stack_b);
 		/*se prendio, ahora toca el algoritmo*/
 	}
 	//system("leaks push_swap");

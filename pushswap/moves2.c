@@ -6,21 +6,31 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 21:05:47 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/08/10 17:15:35 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/08/10 18:17:46 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+
 /*desplaza hacia arriba todos los elementos del stack a una posición,
 de forma que el primer elemento se convierte en el último.*/
 void	ra(t_stack *stack_a)
 {
 	t_node	*aux;
+	t_node	*last;
+	int		size;
 
-	aux = ft_lstlast(*stack_a);
-	printf("%d\n", aux->content);
-	aux->next = *stack_a;
-	*stack_a = aux;
+	size = ft_lstsize(*stack_a);
+	last = ft_lstlast(*stack_a);
+	last->next = *stack_a;
+	aux = *stack_a;
+	while(size > 2)
+	{	
+		aux = aux->next;
+		size--;
+	}
+	aux->next = NULL;
+	*stack_a = last;
 }
 
 void	rb(t_stack *stack_b)
