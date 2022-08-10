@@ -6,15 +6,15 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 13:02:28 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/08/02 14:06:06 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/08/10 13:55:37 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(int))
+void	ft_lstclear(t_node **lst, void (*del)(int))
 {
-	t_list	*aux;
+	t_node	*aux;
 
 	if (lst && del)
 	{

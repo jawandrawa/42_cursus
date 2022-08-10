@@ -6,15 +6,15 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 19:08:45 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/08/02 14:02:11 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/08/10 15:42:27 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_stack *lst, t_node *new)
 {
-	t_list	*cpy;
+	t_node	*cpy;
 
 	if (!new)
 		return ;

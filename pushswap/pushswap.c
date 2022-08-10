@@ -6,41 +6,38 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:48:08 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/08/03 21:46:28 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/08/10 17:03:59 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-t_list	*create_stacka(char **data)
+t_stack	*create_stacka(char **data)
 {
-	t_list	*first;
-	t_list	*aux;
+	t_stack	*a;
+	t_node	*aux;
 	int		i;
 
-	first = ft_lstnew(ft_atoi(data[0]));
-	i = 1;
+	a = malloc(sizeof(t_stack));
+//proteger amalloc
+	//*a = malloc(sizeof(t_node) * 2);
+	*a = NULL;
+	i = 0;
 	while (data[i])
 	{
 		aux = ft_lstnew((int)ft_atoi(data[i]));
-		ft_lstadd_back(&first, aux);
+		ft_lstadd_back(a, aux);
 		i++;
 	}
-	return (first);
+	return (a);
 }
 
-t_list	*create_stackb(int size)
+t_stack	*create_stackb(void)
 {
-	t_list	*first;
-	t_list	*aux;
-	
-	first = ft_lstnew(0);
-	while (--size > 0)
-	{
-		aux = ft_lstnew(0);
-		ft_lstadd_back(&first, aux);
-	}
-	return (first);
+	t_stack	*sol;
+	sol = malloc(sizeof(t_stack));
+	*sol = NULL;
+	return (sol);
 }
 
 void	free_elements(char **array)
@@ -56,22 +53,22 @@ void	free_elements(char **array)
 	free(array);
 }
 
-void	print_lst(t_list *lst)
+void	print_stack(t_node *node)
 {
-	printf("%d\n", lst->content);
-	while(lst->next)
+	printf("%d\n", node->content);
+	while(node->next)
 	{
-		lst = lst->next;
-		printf("%d\n", lst->content);
+		node = node->next;
+		printf("%d\n", node->content);
 	}
 }
 
 int	main(int argc, char **argv)
 {
 	char	**nums;
-	t_list	*stack_a;
-	t_list	*stack_b;
-	int		size;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	
 	if (argc == 1)
 	{
 		printf("ingrese valores por favor\n");
@@ -87,12 +84,11 @@ int	main(int argc, char **argv)
 	else
 	{
 		stack_a = create_stacka(nums);
-		size = ft_lstsize(stack_a);
-		m_swap(stack_a);
-		stack_b = create_stackb(size);
-		print_lst(stack_a);
-		printf("tamaño stck_a : %d stck_b : %d\n", size, ft_lstsize(stack_b));
-		print_lst(stack_b);
+		stack_b = create_stackb();
+		ra(stack_a);
+		print_stack(*stack_a);
+		printf("tamaño stck_a : %d\n", ft_lstsize(*stack_a));
+		print_stack(*stack_b);
 		/*se prendio, ahora toca el algoritmo*/
 	}
 	//system("leaks push_swap");

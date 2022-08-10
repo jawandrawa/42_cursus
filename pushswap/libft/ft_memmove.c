@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 18:19:49 by mtacunan          #+#    #+#             */
-/*   Updated: 2021/10/16 13:02:28 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/08/09 12:53:49 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,36 +36,3 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-/*void	*ft_memmove(void *dst, const void *src, size_t len)
-{
-	unsigned char	*dst_cpy;
-	unsigned char	*src_cpy;
-
-	if (dst < src)
-	{
-		dst_cpy = dst;
-		src_cpy = (unsigned char *)src;
-		while (src_cpy <= (unsigned char *)src + len)
-		{
-			*dst_cpy = *src_cpy;
-			dst_cpy++;
-			src_cpy++;
-		}
-		return (dst);
-	}
-	if (src < dst)
-	{
-		dst_cpy = dst + len;
-		src_cpy = (unsigned char *)src + len;
-		while ((unsigned char *)src <= src_cpy + len)
-		{
-			*dst_cpy = *src_cpy;
-			dst_cpy--;
-			src_cpy--;
-		}
-		return (dst);
-	}
-	else
-		return ((void *)src);
-}
-*/
