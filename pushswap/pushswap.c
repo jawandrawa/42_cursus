@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:48:08 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/08/10 17:59:41 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/08/16 16:39:14 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void	free_elements(char **array)
 
 void	print_stack(t_node *node)
 {
+	if(!node)
+		return;
 	printf("%d\n", node->content);
 	while(node->next)
 	{
@@ -65,31 +67,34 @@ void	print_stack(t_node *node)
 
 int	main(int argc, char **argv)
 {
-	char	**nums;
+	char	**data;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	int		nums;
 	
 	if (argc == 1)
 	{
 		printf("ingrese valores por favor\n");
 		return(0);
 	}
-	nums = starter(argc, argv);
-	if (!check_elements(nums) || !check_reps(nums) || !*nums)
+	data = starter(argc, argv);
+	if (!check_elements(data) || !check_reps(data) || !*data)
 	{
-		free_elements(nums);
+		free_elements(data);
 		write(2,"Ingrese números integers sin repeticiones.\n",44);
 		return(0);
 	}
 	else
 	{
-		stack_a = create_stacka(nums);
+		stack_a = create_stacka(data);
 		stack_b = create_stackb();
-		ra(stack_a);
+		nums = ft_lstsize(*stack_a);
 		print_stack(*stack_a);
-		printf("tamaño stck_a : %d\n", ft_lstsize(*stack_a));
-		//print_stack(*stack_b);
+		// printf("tamaño stck_a : %d\n", ft_lstsize(*stack_a));
+		// print_stack(*stack_b);
 		/*se prendio, ahora toca el algoritmo*/
+		put_id(stack_a);
+		print_stack(*stack_a);
 	}
 	//system("leaks push_swap");
 	return (0);

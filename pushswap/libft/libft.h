@@ -10,6 +10,7 @@
 typedef struct t_node
 {
 	int				content;
+	int				id;
 	struct t_node	*next;
 }	t_node;
 
