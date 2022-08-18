@@ -6,11 +6,12 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 19:08:55 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/08/10 13:55:27 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/08/18 14:20:31 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 void	ft_lstadd_front(t_node **lst, t_node *new)
 {
 	new->next = *lst;

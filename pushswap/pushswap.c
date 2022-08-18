@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:48:08 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/08/16 16:39:14 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/08/18 14:13:06 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ t_stack	*create_stacka(char **data)
 	t_node	*aux;
 	int		i;
 
-	a = malloc(sizeof(t_stack));
+	a = ft_calloc(sizeof(t_stack), 1);
 //proteger amalloc
 	//*a = malloc(sizeof(t_node) * 2);
 	*a = NULL;
 	i = 0;
 	while (data[i])
 	{
-		aux = ft_lstnew((int)ft_atoi(data[i]));
+		aux = ft_lstnew((int)ft_atoi(data[i]), 0);
 		ft_lstadd_back(a, aux);
 		i++;
 	}
@@ -35,7 +35,7 @@ t_stack	*create_stacka(char **data)
 t_stack	*create_stackb(void)
 {
 	t_stack	*sol;
-	sol = malloc(sizeof(t_stack));
+	sol = ft_calloc(sizeof(t_stack),1);
 	*sol = NULL;
 	return (sol);
 }
@@ -57,11 +57,11 @@ void	print_stack(t_node *node)
 {
 	if(!node)
 		return;
-	printf("%d\n", node->content);
+	printf("content: %d | id: %d\n", node->content, node->id);
 	while(node->next)
 	{
 		node = node->next;
-		printf("%d\n", node->content);
+		printf("content: %d | id: %d\n", node->content, node->id);
 	}
 }
 
@@ -89,12 +89,30 @@ int	main(int argc, char **argv)
 		stack_a = create_stacka(data);
 		stack_b = create_stackb();
 		nums = ft_lstsize(*stack_a);
+		printf("tamaño stck_a : %d\n", nums);
+		put_id(stack_a, nums);
+		//------
+		printf("sorted : %d\n", sorted(stack_a));
+		if (nums == 1)
+			return(0);
+		else if(nums == 2)
+		{
+			if ((*stack_a)->id == 1)
+				return(0);
+			else
+			{	
+				sa(stack_a);
+				return(0);
+			}
+		}
+		else
+			div_stack(stack_a, stack_b, nums/2, nums);
+		/*para visualizar los stacks , quitar despues
+		printf("<<<stack a>>>\n");
 		print_stack(*stack_a);
-		// printf("tamaño stck_a : %d\n", ft_lstsize(*stack_a));
-		// print_stack(*stack_b);
-		/*se prendio, ahora toca el algoritmo*/
-		put_id(stack_a);
-		print_stack(*stack_a);
+		printf( "-----\n");
+		printf("<<<stack b>>>\n");
+		print_stack(*stack_b);*/
 	}
 	//system("leaks push_swap");
 	return (0);

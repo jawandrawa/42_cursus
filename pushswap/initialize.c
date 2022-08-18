@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:36:01 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/08/02 15:10:32 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/08/18 13:55:50 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ char	*add_sp(char *str)
 	res = ft_strjoin(res," ");
 	return (res);
 }
-
 
 int	check_elements(char **stack)
 {

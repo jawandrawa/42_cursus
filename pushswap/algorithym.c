@@ -5,44 +5,43 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/16 15:15:03 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/08/16 16:50:16 by mtacunan         ###   ########.fr       */
+/*   Created: 2022/08/18 10:25:45 by mtacunan          #+#    #+#             */
+/*   Updated: 2022/08/18 14:13:23 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	get_min(t_stack *stack_a)
+int	sorted(t_stack *s)
 {
-	int 	res;
 	t_node	*aux;
 	
-	res = (*stack_a)->content;
-	aux = *stack_a;
-	while(aux)
+	aux = *s;
+	while (aux->next)
 	{
-		if(aux->content < res)
-			res = aux->content;
-		aux = aux->next;	
+		if(aux->id > aux->next->id)
+			return(0);
+		aux = aux->next;
 	}
-	return (res);
+	return (1);
 }
 
-void	put_id(t_stack *stack_a)
+void	div_stack(t_stack *sa, t_stack *sb, int mediana, int size)
 {
-	/*
-		0-poner id_posicion(id) a cada uno de los numeros
-	*/
-	int	min;
-
-	min = get_min(stack_a);
-	printf("minimo : %d\n", min);
+	/*dividir los numeros, en el sa nº<= mediana , sb  nº> mediana*/
+	while(size > 0)
+	{	
+		if((*sa)->id <= mediana)
+		{
+			pb(sa, sb);
+		}
+		else
+			ra(sa);
+		size--;
+	}
 }
 
-
-
-/*
-		1-buscar el minimo
-		2-mmandarlo al stack_b
-		3- buscar el siguiente mas chikito
-*/
+// void	order_sa(t_stack *sa)
+// {
+// 	if ((*sa)->id)
+// }

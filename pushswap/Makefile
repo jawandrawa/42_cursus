@@ -6,11 +6,17 @@
 #    By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 15:51:44 by mtacunan          #+#    #+#              #
-#    Updated: 2022/08/16 16:31:42 by mtacunan         ###   ########.fr        #
+#    Updated: 2022/08/18 13:59:14 by mtacunan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = pushswap.c initialize.c moves.c rotate_up.c rotate_down.c algorithym.c
+SRCS = pushswap.c \
+		initialize.c \
+		moves/moves.c \
+		moves/rotate_up.c \
+		moves/rotate_down.c \
+		previous.c \
+		algorithym.c
 NAME = push_swap
 GCC   = gcc
 CFLAGS = -Wall -Werror -Wextra

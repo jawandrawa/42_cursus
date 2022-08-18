@@ -6,13 +6,13 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 19:09:21 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/08/16 16:24:44 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/08/18 10:52:05 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_node	*ft_lstnew(int content)
+t_node	*ft_lstnew(int content, int id)
 {
 	t_node	*sol;
 
@@ -21,6 +21,6 @@ t_node	*ft_lstnew(int content)
 		return (NULL);
 	sol->content = content;
 	sol->next = NULL;
-	sol->id = 0;
+	sol->id = id;
 	return (sol);
 }
