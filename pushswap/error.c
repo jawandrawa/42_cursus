@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize.c                                       :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:36:01 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/08/18 13:55:50 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/08/23 14:16:43 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 char	*add_sp(char *str)
 {
 	char	*res;
-	
+
 	res = ft_strdup(str);
-	res = ft_strjoin(res," ");
+	res = ft_strjoin(res, " ");
 	return (res);
 }
 
@@ -32,7 +32,7 @@ int	check_elements(char **stack)
 		i = 0;
 		while (stack[j][i])
 		{
-			if ( (!ft_isdigit(stack[j][i]) && stack[j][i] != '-' )
+			if ((!ft_isdigit(stack[j][i]) && stack[j][i] != '-' )
 				|| (stack[j][i] == '-' && !ft_isdigit(stack[j][i + 1])))
 				return (0);
 			i++;
@@ -41,24 +41,23 @@ int	check_elements(char **stack)
 	}
 	return (1);
 }
-/*falta lo de los limites de los integer*/
+
 int	check_reps(char	**nums)
 {
 	int	i;
 	int	j;
 	int	aux;
-
+	//falta lo de los limites de los integer
 	i = 0;
 	while (nums[i])
 	{
 		aux = ft_atoi(nums[i]);
 		j = i + 1;
-		while(nums[j])
+		while (nums[j])
 		{
-			if (aux == ft_atoi(nums[j]) || aux < -2147483648 || aux > 2147483647)
-			{
+			if (aux == ft_atoi(nums[j])
+				|| aux < -2147483648 || aux > 2147483647)
 				return (0);
-			}
 			j++;
 		}
 		i++;
@@ -66,23 +65,36 @@ int	check_reps(char	**nums)
 	return (1);
 }
 
-char	**starter(int argc, char** argv)
+char	**get_data(int argc, char **argv)
 {
 	int		i;
 	char	*aux;
 	char	**sol;
 	char	*data;
-	
+
 	i = 1;
 	data = ft_strdup("");
+	if (argc == 1)
+		return (NULL);
 	while (i < argc)
 	{
 		aux = add_sp(argv[i]);
-		data = ft_strjoin(data,aux);
+		data = ft_strjoin(data, aux);
 		free(aux);
 		i++;
 	}
 	sol = ft_split(data, ' ');
 	free(data);
-	return(sol);
+	return (sol);
+}
+
+int	check_all(int argc, char **argv)
+{
+	char	**data;
+
+	data = get_data(argc, argv);
+	if (!check_elements(data) || !check_reps(data) || !*data)
+		return (0);
+	free_elements(data);
+	return (1);
 }

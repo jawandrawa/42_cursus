@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithym_1.c                                     :+:      :+:    :+:   */
+/*   set_id.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 15:15:03 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/08/18 10:18:42 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/08/23 14:11:24 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,24 @@ void	find_node(t_stack *stack, int nb, int id)
 	aux = *stack;
 	while (aux)
 	{
-		if(aux->content == nb)
+		if (aux->content == nb)
 			aux->id = id;
 		aux = aux->next;
 	}
 }
 
-int	get_min(t_stack *stack_a)
+int	get_min(t_stack *s)
 {
-	int 	res;
+	int		res;
 	t_node	*aux;
-	
+
 	res = 2147483647;
-	aux = *stack_a;
+	aux = *s;
 	while (aux)
 	{
-		if(aux->id == 0 && aux->content < res)
+		if (aux->id == 0 && aux->content < res)
 			res = aux->content;
-		aux = aux->next;	
+		aux = aux->next;
 	}
 	return (res);
 }
@@ -45,7 +45,7 @@ void	put_id(t_stack *stack_a, int nums)
 {
 	int	min;
 	int	id;
-	
+
 	id = 1;
 	min = get_min(stack_a);
 	while (nums > 0)

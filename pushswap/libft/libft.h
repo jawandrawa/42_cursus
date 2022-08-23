@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 14:21:07 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/08/18 14:21:08 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/08/23 14:18:56 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <string.h>
 
 # define LONG_MAX 9223372036854775807
+
 typedef struct t_node
 {
 	int				content;
@@ -61,7 +62,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-t_node	*ft_lstnew(int content,int id);
+t_node	*ft_lstnew(int content, int id);
 t_node	*ft_lstlast(t_node *lst);
 void	ft_lstclear(t_node **lst, void (*del)(int));
 void	ft_lstadd_back(t_stack *lst, t_node *new);

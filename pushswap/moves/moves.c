@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 15:13:04 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/08/18 14:18:34 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/08/23 11:31:49 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,26 @@
 
 void	sa(t_stack *lst)
 {
-	int	aux;
+	t_node	*aux;
 
 	if (ft_lstsize(*lst) > 1)
 	{
-		aux = (*lst)->content;
-		(*lst)->content = (*lst)->next->content;
-		(*lst)->next->content = aux;
+		aux = (*lst)->next;
+		aux->next = *lst;
+		*lst = aux;
 	}
 	write(1, "sa\n", 3);
 }
 
 void	sb(t_stack *lst)
 {
-	int	aux;
+	t_node	*aux;
 
 	if (ft_lstsize(*lst) > 1)
 	{
-		aux = (*lst)->content;
-		(*lst)->content = (*lst)->next->content;
-		(*lst)->next->content = aux;
+		aux = (*lst)->next;
+		aux->next = *lst;
+		*lst = aux;
 	}
 	write(1, "sb\n", 3);
 }
