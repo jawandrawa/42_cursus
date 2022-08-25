@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:48:08 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/08/23 14:03:25 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/08/25 22:26:13 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ int	main(int argc, char **argv)
 		sort2(stack_a);
 	else
 		sort(stack_a, stack_b);
-	//para visualizar los stacks , quitar despues
+//	para visualizar los stacks , quitar despues
+
 	// printf("sorted : %d\n", sorted(stack_a));
 	// printf("<<<stack a>>>\n");
 	// print_stack(stack_a);
@@ -68,6 +69,6 @@ int	main(int argc, char **argv)
 	// printf("<<<stack b>>>\n");
 	// print_stack(stack_b);
 
-	system("leaks push_swap");
+	//system("leaks push_swap");
 	return (0);
 }

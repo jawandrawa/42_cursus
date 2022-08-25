@@ -6,7 +6,7 @@
 #    By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 15:51:44 by mtacunan          #+#    #+#              #
-#    Updated: 2022/08/23 14:07:57 by mtacunan         ###   ########.fr        #
+#    Updated: 2022/08/25 20:02:34 by mtacunan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ OBJS = ${SRCS:.c=.o}
 .c.o:
 	@${GCC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-${NAME} : ${OBJS}  ${LIBFT}
+${NAME} : ${OBJS}
 	make -C libft
 	@${GCC} ${CFLAGS} ${OBJS} libft/libft.a -o ${NAME}
 
