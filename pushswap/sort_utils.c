@@ -1,58 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_id.c                                           :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/16 15:15:03 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/08/29 16:49:32 by mtacunan         ###   ########.fr       */
+/*   Created: 2022/08/29 16:42:54 by mtacunan          #+#    #+#             */
+/*   Updated: 2022/08/31 16:17:08 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+/*0 : ra 1 : rra*/
 
-void	set_node(t_stack *stack, int nb, int id)
+int	find_node (t_stack *s, int nb)
 {
 	t_node	*aux;
+	int		pos;
 
-	aux = *stack;
-	while (aux)
-	{
-		if (aux->content == nb)
-			aux->id = id;
-		aux = aux->next;
-	}
-}
-
-int	get_min(t_stack *s)
-{
-	int		res;
-	t_node	*aux;
-
-	res = 2147483647;
+	pos = 0;
 	aux = *s;
 	while (aux)
 	{
-		if (aux->id == 0 && aux->content < res)
-			res = aux->content;
+		if (aux->id == nb)
+			return (pos);
+		pos++;
 		aux = aux->next;
 	}
-	return (res);
-}
-
-void	put_id(t_stack *stack_a, int nums)
-{
-	int	min;
-	int	id;
-
-	id = 1;
-	min = get_min(stack_a);
-	while (nums > 0)
-	{
-		set_node(stack_a, min, id);
-		min = get_min(stack_a);
-		id++;
-		nums--;
-	}
+	return (pos);
 }

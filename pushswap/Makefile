@@ -6,7 +6,7 @@
 #    By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 15:51:44 by mtacunan          #+#    #+#              #
-#    Updated: 2022/08/25 20:02:34 by mtacunan         ###   ########.fr        #
+#    Updated: 2022/08/31 12:59:50 by mtacunan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,9 @@ SRCS = pushswap.c \
 		set_id.c \
 		algorithym.c \
 		utils.c \
-		size2.c
+		sort_utils.c \
+		size2.c \
+		size3.c
 NAME = push_swap
 GCC   = gcc
 CFLAGS = -Wall -Werror -Wextra

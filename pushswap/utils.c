@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 12:07:58 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/08/23 14:10:10 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/08/31 15:22:21 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,16 @@ int	sorted(t_stack *s)
 
 void	print_stack(t_stack *s)
 {
-	if (!*s)
+	t_node	*aux;
+
+	aux = *s;
+	if (!aux)
 		return ;
-	printf("content: %d | id: %d\n", (*s)->content, (*s)->id);
-	while ((*s)->next)
+	printf("content: %d | id: %d\n", aux->content, aux->id);
+	while (aux->next)
 	{
-		(*s) = (*s)->next;
-		printf("content: %d | id: %d\n", (*s)->content, (*s)->id);
+		aux = aux->next;
+		printf("content: %d | id: %d\n", aux->content, aux->id);
 	}
 }
 
@@ -50,3 +53,4 @@ void	free_elements(char **array)
 	}
 	free (array);
 }
+
