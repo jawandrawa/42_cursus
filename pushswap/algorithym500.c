@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 19:57:38 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/09/02 21:15:16 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/09/02 21:33:58 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@
  * 2- cuando size_a < 50 , dividir como en 100. Hasta >= 3 
  * 3- ordenar y buscar el siguiente
 */
+
 void	div50(t_stack *sa, t_stack *sb, int round)
 {
 	int	moves;
-	
+
 	moves = 0;
 	while (moves < 50)
 	{

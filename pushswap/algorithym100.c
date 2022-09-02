@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 21:14:27 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/09/02 21:18:16 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/09/02 21:33:30 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	div20(t_stack *sa, t_stack *sb, int round)
 {
 	int	moves;
-	
+
 	moves = 0;
 	while (moves < 20)
 	{
