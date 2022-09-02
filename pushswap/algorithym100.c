@@ -1,27 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   algorithym100.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/02 19:03:54 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/09/02 19:35:01 by mtacunan         ###   ########.fr       */
+/*   Created: 2022/09/02 21:14:27 by mtacunan          #+#    #+#             */
+/*   Updated: 2022/09/02 21:18:16 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "pushswap.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	div20(t_stack *sa, t_stack *sb, int round)
 {
-	size_t	i;
-
-	i = 0;
-	while ((s1[i] != '\0' && i < n) || (s2[i] != '\0' && i < n))
+	int	moves;
+	
+	moves = 0;
+	while (moves < 20)
 	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
+		if ((*sa)->id <= round * 20)
+		{
+			pb(sa, sb);
+			moves++;
+		}
+		else
+			ra(sa);
 	}
-	return (0);
+}
+
+void	sort100(t_stack *a, t_stack *b)
+{
+	int	round;
+
+	round = 1;
+	while (ft_lstsize(*a) > 20)
+	{
+		div20(a, b, round);
+		round++;
+	}
+	sort(a, b);
 }

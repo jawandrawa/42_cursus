@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:36:01 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/08/29 17:40:19 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/09/02 19:42:52 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ int	check_elements(char **stack)
 		i = 0;
 		while (stack[j][i])
 		{
-			if ((!ft_isdigit(stack[j][i]) && stack[j][i] != '-' && stack[j][i] != '+')
+			if ((!ft_isdigit(stack[j][i]) && stack[j][i] != '-'
+					&& stack[j][i] != '+')
 				|| (stack[j][i] == '-' && !ft_isdigit(stack[j][i + 1]))
 				|| (stack[j][i] == '+' && !ft_isdigit(stack[j][i + 1])))
 				return (0);
@@ -43,12 +44,14 @@ int	check_elements(char **stack)
 	return (1);
 }
 
+	//falta lo de los limites de los integer
+
 int	check_reps(char	**nums)
 {
 	int	i;
-	int	j;
 	int	aux;
-	//falta lo de los limites de los integer
+	int	j;
+
 	i = 0;
 	while (nums[i])
 	{

@@ -15,14 +15,14 @@ else
 	echo "Demasiados argumentos"
 	exit
 fi
-
+​
 var=0;
 echo "realizando pruebas..."
-
+​
 for i in $(seq $TOTAL)
 do
 	ARG=$(seq -$lenlist $lenlist | sort -R | head -n $lenlist | tr '\n' ' ')
-	echo $ARG
+	#echo $ARG
 	ret=$(./push_swap $ARG | wc -l)
 	ret2=$(./push_swap $ARG | ./checker_mac $ARG )
 	var=$(($ret + $var))
@@ -32,5 +32,4 @@ do
 		echo "..."
 	fi
 done
-
 echo Media de pasos necesarios: $(($var / $TOTAL))

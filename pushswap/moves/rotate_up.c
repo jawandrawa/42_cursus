@@ -6,13 +6,16 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 21:05:47 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/08/18 14:19:42 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/09/02 19:31:30 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
-/*desplaza hacia arriba todos los elementos del stack a una posición,
-de forma que el primer elemento se convierte en el último.*/
+/*
+* desplaza hacia arriba todos los elementos del stack a una posición,
+* de forma que el primer elemento se convierte en el último.
+*/
+
 void	rra(t_stack *stack_a)
 {
 	t_node	*aux;

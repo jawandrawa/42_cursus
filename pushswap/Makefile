@@ -6,7 +6,7 @@
 #    By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 15:51:44 by mtacunan          #+#    #+#              #
-#    Updated: 2022/08/31 12:59:50 by mtacunan         ###   ########.fr        #
+#    Updated: 2022/09/02 21:15:55 by mtacunan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ SRCS = pushswap.c \
 		moves/rotate_down.c \
 		set_id.c \
 		algorithym.c \
+		algorithym500.c \
+		 algorithym100.c \
 		utils.c \
 		sort_utils.c \
 		size2.c \

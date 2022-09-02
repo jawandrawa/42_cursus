@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 12:07:58 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/08/31 15:22:21 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/09/02 19:54:54 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,3 @@ void	free_elements(char **array)
 	}
 	free (array);
 }
-
