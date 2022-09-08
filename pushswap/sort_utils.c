@@ -6,12 +6,12 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 16:42:54 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/09/02 21:35:13 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/09/08 17:28:29 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
-/*0 : ra 1 : rra*/
+
 
 int	find_node (t_stack *s, int nb)
 {
@@ -49,10 +49,8 @@ void	get_next(t_stack *a, t_stack *b)
 			pa(a, b);
 			next = (*a)->id - 1;
 		}
-		else if (find_node(b, next) <= (ft_lstsize(*b) / 2))
-		{
+		else if (find_node(b, next) <= nums / 2)
 			rb(b);
-		}
 		else
 			rrb(b);
 		nums = ft_lstsize(*b);

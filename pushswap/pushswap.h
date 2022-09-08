@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:48:13 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/09/02 21:17:55 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/09/08 17:48:02 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	sort2(t_stack *a);
 void	sort3(t_stack *s);
 void	sort(t_stack *a, t_stack *b);
 void	put_id(t_stack *stack_a, int nums);
-void	div_stack(t_stack *sa, t_stack *sb, int mediana, int size);
+void	div_stack(t_stack *a, t_stack *b, int media, int size);
 void	sort100(t_stack *a, t_stack *b);
 void	sort500(t_stack *a, t_stack *b);
 

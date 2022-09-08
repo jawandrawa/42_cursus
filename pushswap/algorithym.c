@@ -6,21 +6,28 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 10:25:45 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/09/02 20:53:55 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/09/08 17:48:56 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	div_stack(t_stack *sa, t_stack *sb, int media, int size)
+void	div_stack(t_stack *a, t_stack *b, int media, int size)
 {
-	while (size > 0)
+	int	pushed;
+	int	i;
+
+	i = 0;
+	pushed = ft_lstsize(*a) / 2 + size;
+	while (pushed)
 	{	
-		if ((*sa)->id <= media)
-			pb(sa, sb);
+		if ((*a)->id <= media)
+		{
+			pb(a, b);
+			pushed--;
+		}
 		else
-			ra(sa);
-		size--;
+			ra(a);
 	}
 }
 
@@ -47,12 +54,22 @@ void	sort(t_stack *a, t_stack *b)
 	nums = ft_lstsize(*a);
 	while (nums > 3)
 	{
-		div_stack(a, b, get_media(a), ft_lstsize(*a));
+		div_stack(a, b, get_media(a), ft_lstsize(*a) % 2);
 		nums = ft_lstsize(*a);
 	}
+		// 	printf("<<<stack a>>>\n");
+		// print_stack(a);
+		// printf( "-----\n");
+		// printf("<<<stack b>>>\n");
+		// print_stack(b);
+
+
 	if (nums == 2)
+	{
 		sort2(a);
+	}
 	if (nums == 3)
 		sort3(a);
+
 	get_next(a, b);
 }
