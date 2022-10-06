@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 12:31:18 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/07/14 15:13:17 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/07/23 15:11:43 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct server
 	int	g_character;
 	int	g_position;
 	int	srv_pid;	
-}g_data;
+}t_data;
 int		ft_isdigit(int c);
 int		ft_atoi(char *str);
 char	*ft_itoa(int num);
