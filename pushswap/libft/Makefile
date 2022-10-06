@@ -1,3 +1,24 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/09/19 17:10:16 by mtacunan          #+#    #+#              #
+#    Updated: 2022/09/19 17:20:55 by mtacunan         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NC				=	\033[0m
+RED				=	\033[0;31m
+GREEN			=	\033[0;32m
+LRED			=	\033[1;31m
+LGREEN			=	\033[1;32m
+YELLOW			=	\033[1;33m
+LBLUE			=	\033[1;34m
+TITLE			=	\033[38;5;33m
+
 NAME	=		libft.a
 
 SRCS	=		ft_memset.c \
@@ -60,7 +81,7 @@ CFLAGS	=		-Wall -Werror -Wextra
 all: $(NAME)
 
 $(NAME): $(OBJS) $(SRCH)
-	$(AR) $(NAME) $(OBJS)
+	@$(AR) $(NAME) $(OBJS)
 
 clean:
 	${RM} ${OBJS} ${OBJB}
@@ -75,9 +96,10 @@ re: fclean all
 
 rebonus: fclean bonus
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(SRCBONUS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS) $(OBJB)
+%.o: %.c
+	@echo "${YELLOW}Compilando ${NC}$<\c"
+	@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+	@echo " ${GREEN}->[OK]${NC}"
 
 .PHONY: all clean fclean bonus re rebonus so
 

@@ -6,11 +6,16 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 10:25:45 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/09/08 17:48:56 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/09/19 16:06:42 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+
+/*
+ *	Divide el stack a pasando la mitad hacia b. 
+ * 	Recibe como arametros la media del stack a.
+*/
 
 void	div_stack(t_stack *a, t_stack *b, int media, int size)
 {
@@ -57,19 +62,9 @@ void	sort(t_stack *a, t_stack *b)
 		div_stack(a, b, get_media(a), ft_lstsize(*a) % 2);
 		nums = ft_lstsize(*a);
 	}
-		// 	printf("<<<stack a>>>\n");
-		// print_stack(a);
-		// printf( "-----\n");
-		// printf("<<<stack b>>>\n");
-		// print_stack(b);
-
-
 	if (nums == 2)
-	{
 		sort2(a);
-	}
 	if (nums == 3)
 		sort3(a);
-
 	get_next(a, b);
 }

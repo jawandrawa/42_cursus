@@ -6,28 +6,38 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:05:07 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/10/05 17:59:37 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/10/06 18:54:30 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+pthread_mutex_t	lock =PTHREAD_MUTEX_INITIALIZER;
 void* present(void *arg)
 {
-	while(1)
-	{
-		sleep(1);
-		printf("soy el filosofo 1\n");
-	}
+	int	*id = (int	*)arg;
+	printf("soy el filosofo %d\n", *id);
 	return (NULL);
 }
 
-void	a_func()
+void	a_func(int limit)
 {
-	for(int i=0 ; i < 1; i++)
-	{
-		sleep(2);
-		printf("a\n");
+	sleep(1);
+}
+
+
+/* ESTA HACIENDO 5 PHILOSOPHOS */
+void	create_philos(int nb)
+{
+	int id;
+
+	id = 1;
+	while (id <= nb)
+	{	
+		pthread_t h1 ;
+		pthread_create(&h1 , NULL , present , &id );
+		a_func(nb);
+		id++;
 	}
 }
 
@@ -43,7 +53,7 @@ int	main(int argc, char **argv)
 
 	// if (argc != 5)
 	// {
-	// 	write(1, "introduzca : [t_muerte]  [t_comer] [t_dormir].\n", 47);
+	// 	write(1, "introduzca : [n_philos] [t_muerte]  [t_comer] [t_dormir].\n", 58);
 	// 	return (0);
 	// }
 	/*parseo*/
@@ -51,8 +61,5 @@ int	main(int argc, char **argv)
 	antes de eso, como vamos a hacer el proyecto? hacemos una struct con los tenedores, una struc con los fflosofos
 	*/
 	//pthread_create();
-	pthread_t h1 ;
-	pthread_create(&h1 , NULL , present , NULL );
-	a_func();
-	printf("hola\n");
+	create_philos(5);
 }

@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:48:13 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/09/08 17:48:02 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/09/19 16:56:13 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,14 @@ void	ra(t_stack *stack_a);
 void	rb(t_stack *stack_b);
 void	rr(t_stack *stack_a, t_stack *stack_b);
 //-------functions of sorting-------//
-int		find_node (t_stack *s, int nb);
+int		find_node(t_stack *s, int nb);
 void	sort2(t_stack *a);
 void	sort3(t_stack *s);
 void	sort(t_stack *a, t_stack *b);
 void	put_id(t_stack *stack_a, int nums);
 void	div_stack(t_stack *a, t_stack *b, int media, int size);
 void	sort100(t_stack *a, t_stack *b);
+void	div20(t_stack *sa, t_stack *sb, int round);
 void	sort500(t_stack *a, t_stack *b);
 
 #endif

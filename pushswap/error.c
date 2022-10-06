@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:36:01 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/09/02 19:42:52 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/09/19 18:16:33 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,12 @@ int	check_reps(char	**nums)
 	while (nums[i])
 	{
 		aux = ft_atoi(nums[i]);
+		if (aux == -1 && ft_strlen(nums[i]) != 2)
+			return (0);
 		j = i + 1;
 		while (nums[j])
 		{
-			if (aux == ft_atoi(nums[j])
-				|| aux < -2147483648 || aux > 2147483647)
+			if (aux == ft_atoi(nums[j]))
 				return (0);
 			j++;
 		}
@@ -98,7 +99,10 @@ int	check_all(int argc, char **argv)
 
 	data = get_data(argc, argv);
 	if (!check_elements(data) || !check_reps(data) || !*data)
+	{
+		free_elements(data);
 		return (0);
+	}
 	free_elements(data);
 	return (1);
 }

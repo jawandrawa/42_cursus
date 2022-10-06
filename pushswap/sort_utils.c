@@ -6,14 +6,18 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 16:42:54 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/09/08 17:28:29 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/09/19 16:02:57 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
+/*
+ *	Encuentra la posicion de nb, para 
+ *	decidir si usar rotate o reverse rotate
+*/
 
-int	find_node (t_stack *s, int nb)
+int	find_node(t_stack *s, int nb)
 {
 	t_node	*aux;
 	int		pos;
@@ -31,7 +35,7 @@ int	find_node (t_stack *s, int nb)
 }
 
 /*
- * Busca el el siguient elemento para pushear al stack_a
+ * Busca el el siguiente elemento para pushear al stack_a
  * Es el último paso
 */
 

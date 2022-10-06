@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 14:21:07 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/09/02 20:35:41 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/09/19 18:21:03 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # include <unistd.h>
 # include <string.h>
 
-# define LONG_MAX 9223372036854775807
+# define LONG_MAX 2147483647
+# define LONG_MIN -2147483648
 
 typedef struct t_node
 {

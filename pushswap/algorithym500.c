@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 19:57:38 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/09/08 17:20:17 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/09/19 16:16:21 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	sort500(t_stack *a, t_stack *b)
 	int	round;
 
 	round = 1;
-	while (ft_lstsize(*a) > 50)
+	while (ft_lstsize(*a) > 100)
 	{
 		div50(a, b, round);
 		round++;

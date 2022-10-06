@@ -6,11 +6,24 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:48:08 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/09/02 21:34:31 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/09/19 18:31:32 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+
+void	free_lst(t_stack *s)
+{
+	t_node	*aux;
+
+	while (*s)
+	{
+		aux = (*s)->next;
+		free(*s);
+		*s = aux;
+	}
+	free(s);
+}
 
 t_stack	*create_stacka(int argc, char **argv)
 {
@@ -54,7 +67,7 @@ int	main(int argc, char **argv)
 		return (-1);
 	if (!check_all(argc, argv))
 	{
-		printf("awa\n");
+		write(1, "error\n", 6);
 		return (0);
 	}
 	stack_a = create_stacka(argc, argv);
@@ -69,5 +82,7 @@ int	main(int argc, char **argv)
 		sort100(stack_a, stack_b);
 	else
 		sort500(stack_a, stack_b);
+	free_lst(stack_a);
+	free(stack_b);
 	return (0);
 }
