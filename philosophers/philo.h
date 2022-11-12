@@ -6,7 +6,7 @@
 /*   By: mtacunan <mtacunan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:17:25 by mtacunan          #+#    #+#             */
-/*   Updated: 2022/10/05 16:21:01 by mtacunan         ###   ########.fr       */
+/*   Updated: 2022/11/12 13:14:39 by mtacunan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,14 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
+
+typedef struct data
+{
+	int	id;
+	int	tdie;
+	int	teat;
+	int	tsleep;	
+}t_philo;
+
 #endif
